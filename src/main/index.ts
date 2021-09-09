@@ -2,7 +2,7 @@ import path from 'path'
 import { app, BrowserWindow } from 'electron'
 import { register } from './communication'
 
-let win: BrowserWindow = null
+let win: BrowserWindow | null = null
 
 function bootstrap() {
   win = new BrowserWindow({
@@ -25,4 +25,7 @@ function bootstrap() {
 
 app.whenReady().then(bootstrap)
 
-app.on('window-all-closed', () => { win = null })
+app.on('window-all-closed', () => {
+  win = null
+  app.quit()
+})

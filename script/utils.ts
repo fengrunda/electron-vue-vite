@@ -8,7 +8,7 @@ import { parse as parseEnv } from 'dotenv'
 
 /** 轮询监听 vite 启动 */
 export function waitOn(arg0: { port: string | number; interval?: number; }) {
-  return new Promise<number>(resolve => {
+  return new Promise<number | undefined>(resolve => {
     const { port, interval = 149 } = arg0
     const url = `http://localhost:${port}`
     let counter = 0
@@ -48,4 +48,4 @@ export function getEnv(): Record<string, string> {
     return {}
   }
 }
-getEnv.env = undefined // Just fix ts check
+getEnv.env = undefined as (Record<string, string> | undefined) // Just fix ts check
