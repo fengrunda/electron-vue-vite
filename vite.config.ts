@@ -24,7 +24,7 @@ export default defineConfig({
     }),
   ],
   root: path.join(__dirname, 'src/render'),
-  base: './', // index.html 中静态资源加载位置
+  base: './',
   server: {
     port: +process.env.PORT,
   },
@@ -38,7 +38,6 @@ export default defineConfig({
     outDir: path.join(__dirname, 'dist/render'),
     sourcemap: true,
     minify: false,
-    assetsDir: '', // 相对路径 加载问题
   },
   esbuild: {
     jsxFactory: 'h',
