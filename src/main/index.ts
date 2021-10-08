@@ -17,7 +17,9 @@ const windows: Record<string, BrowserWindow | null> = {}
 
 function main() {
   windows.main = new BrowserWindow({
-    webPreferences: {},
+    webPreferences: {
+      preload: path.join(__dirname, '../preload/index.main.js'),
+    },
   })
 
   if (app.isPackaged) {
@@ -41,7 +43,7 @@ function login() {
     resizable: false, // 不让缩放
     // frame: !app.isPackaged, // 打包后去掉边框
     webPreferences: {
-      preload: path.join(__dirname, '../preload/index.js'),
+      preload: path.join(__dirname, '../preload/index.login.js'),
     },
   })
 

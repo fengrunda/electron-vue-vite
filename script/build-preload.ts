@@ -1,3 +1,4 @@
+import path from 'path'
 import { watch, rollup, OutputOptions } from 'rollup'
 import minimist from 'minimist'
 import chalk from 'chalk'
@@ -5,7 +6,14 @@ import ora from 'ora'
 import options from './rollup.config'
 
 const argv = minimist(process.argv.slice(2))
-const opt = options({ proc: 'preload', env: argv.env })
+const opt = options({
+  proc: 'preload',
+  env: argv.env,
+  input: {
+    main: path.join(__dirname, `../src/preload/main.ts`),
+    login: path.join(__dirname, `../src/preload/login.ts`),
+  },
+})
 const TAG = '[build-preload.ts]'
 const spinner = ora(`${TAG} Electron preload build...`)
 
