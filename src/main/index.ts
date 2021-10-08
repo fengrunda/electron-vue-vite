@@ -1,31 +1,54 @@
 import path from 'path'
 import { app, BrowserWindow } from 'electron'
-import { register } from './communication'
+import { toggleDevtools } from './communication'
 
-let win: BrowserWindow | null = null
+app.whenReady().then(login)
 
-function bootstrap() {
-  win = new BrowserWindow({
+app.on('window-all-closed', () => {
+  Object.keys(windows).forEach(key => {
+    windows[key] = null
+  })
+  app.quit()
+})
+
+// ----------------------------------------------------------------------
+
+const windows: Record<string, BrowserWindow | null> = {}
+
+function main() {
+  windows.main = new BrowserWindow({
+    webPreferences: {},
+  })
+
+  if (app.isPackaged) {
+    windows.main.loadFile(path.join(__dirname, '../render/index.html'))
+  } else {
+    windows.main.maximize()
+    windows.main.webContents.openDevTools()
+    windows.main.loadURL(`http://localhost:${process.env.PORT}`)
+  }
+
+  // something init setup
+
+  toggleDevtools(windows.main)
+}
+
+function login() {
+  windows.login = new BrowserWindow({
+    title: '登录',
+    width: 540, // 宽高和拼多多官方保持一致 
+    height: 390,
+    resizable: false, // 不让缩放
+    frame: !app.isPackaged, // 打包后去掉边框
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js'),
     },
   })
 
   if (app.isPackaged) {
-    win.loadFile(path.join(__dirname, '../render/index.html'))
+    windows.login.loadFile(path.join(__dirname, '../render/login/index.html'))
   } else {
-    win.maximize()
-    win.webContents.openDevTools()
-    win.loadURL(`http://localhost:${process.env.PORT}`)
+    windows.login.loadURL(`http://localhost:${process.env.PORT}/login/index.html`)
   }
-
-  // something init setup
-  register(win)
 }
 
-app.whenReady().then(bootstrap)
-
-app.on('window-all-closed', () => {
-  win = null
-  app.quit()
-})

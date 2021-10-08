@@ -9,4 +9,3 @@ import './global.less'
 createApp(App)
   .use(router)
   .mount('#app')
-  .$nextTick(window.removeLoading)
