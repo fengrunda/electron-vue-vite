@@ -38,6 +38,12 @@ export default defineConfig({
     outDir: path.join(__dirname, 'dist/render'),
     sourcemap: true,
     minify: false,
+    rollupOptions: {
+      input: {
+        main: path.join(__dirname, 'dist/render/index.html'),
+        login: path.join(__dirname, 'dist/render/login/index.html'),
+      },
+    },
   },
   esbuild: {
     jsxFactory: 'h',
