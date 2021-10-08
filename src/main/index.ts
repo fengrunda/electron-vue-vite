@@ -39,7 +39,7 @@ function login() {
     width: 540, // 宽高和拼多多官方保持一致 
     height: 390,
     resizable: false, // 不让缩放
-    frame: !app.isPackaged, // 打包后去掉边框
+    // frame: !app.isPackaged, // 打包后去掉边框
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js'),
     },
