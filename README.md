@@ -18,6 +18,12 @@
 - [with-login](https://github.com/caoxiemeihao/electron-vue-vite/tree/with-login)
   * [x] With multiple BrowserWindow and tsx、ant-design-vue
 
+## Screenshot
+
+![](https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/with-login/screenshot/with-login.png)
+
+![](https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/with-login/screenshot/main-login.png)
+
 ## 微信讨论
 
 ![](https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/main/blog/wx/qrcode.jpg)
