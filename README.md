@@ -15,22 +15,15 @@
 - [ant-design-vue](https://github.com/caoxiemeihao/electron-vue-vite/tree/ant-design-vue)
   * [x] Use tsx
   * [x] Integration ant-design-vue
-- [with-login](https://github.com/caoxiemeihao/electron-vue-vite/tree/with-login)
-  * [x] With multiple BrowserWindow and tsx、ant-design-vue
-
-## TODO
-- [ ] Preload support HRM
-- [ ] Exit app on `window-all-closed`
-
-## Screenshot
-
-![](https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/with-login/screenshot/with-login.png)
-
-![](https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/with-login/screenshot/main-login.png)
+- [with-login](https://github.com/caoxiemeihao/electron-vue-vite/tree/with-login) `登录窗口、element-ui 这个可能很适合你` 🚀
+  * [x] With multiple BrowserWindow
+  * [x] Integration element-plus
+  * [ ] Preload support HRM
+  * [ ] Exit app on `window-all-closed`
 
 ## 微信讨论
 
-![](https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/main/blog/wx/qrcode.jpg)
+<img width="444px" src="https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/main/blog/wx/qrcode.jpg" />
 
 ---
 
