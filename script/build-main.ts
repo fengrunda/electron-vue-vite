@@ -54,4 +54,3 @@ const spinner = ora(`${TAG} Electron main build...`)
     }
   }
 })();
-
