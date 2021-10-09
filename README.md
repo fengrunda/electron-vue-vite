@@ -23,7 +23,11 @@
 
 ## 微信讨论
 
-<img width="444px" src="https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/main/blog/wx/qrcode.jpg" />
+<img width="240px" src="https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/main/blog/wx/qrcode.jpg" />
+
+
+## 如果你想请我喝个饮料
+<img width="240px" src="https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/main/screenshot/wx-9.99.png" />
 
 ---
 
