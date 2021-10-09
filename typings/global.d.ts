@@ -1,5 +1,5 @@
-import { IpcRenderer } from 'electron'
 
+export { }
 declare namespace NodeJS {
   interface ProcessEnv {
     readonly NODE_ENV: 'development' | 'production'
@@ -8,9 +8,21 @@ declare namespace NodeJS {
 
 declare global {
   interface Window {
-    /** 关闭预加载动画 */
-    removeLoading: () => void
-    ipcRenderer: IpcRenderer
+    /** 过桥通讯 */
+    bridge: ExposeBridge
   }
 }
 
+interface ExposeBridge {
+  /** 关闭预加载动画 */
+  removeLoading: () => void
+
+  /** Electron.IpcRenderer  */
+  ipcRenderer: Electron.IpcRenderer
+
+  /** 登录 */
+  login: () => void
+
+  /** 退出 */
+  logout: () => void
+}

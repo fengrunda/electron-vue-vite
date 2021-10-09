@@ -10,8 +10,8 @@ const opt = options({
   proc: 'preload',
   env: argv.env,
   input: {
-    main: path.join(__dirname, `../src/preload/main.ts`),
-    login: path.join(__dirname, `../src/preload/login.ts`),
+    'index.main': path.join(__dirname, `../src/preload/index.main.ts`),
+    'index.login': path.join(__dirname, `../src/preload/index.login.ts`),
   },
 })
 const TAG = '[build-preload.ts]'

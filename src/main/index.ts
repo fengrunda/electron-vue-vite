@@ -1,21 +1,15 @@
 import path from 'path'
 import { app, BrowserWindow } from 'electron'
-import { toggleDevtools } from './communication'
-
-app.whenReady().then(login)
-
-app.on('window-all-closed', () => {
-  Object.keys(windows).forEach(key => {
-    windows[key] = null
-  })
-  app.quit()
-})
-
-// ----------------------------------------------------------------------
+import { register } from '../common/ipc/main'
 
 const windows: Record<string, BrowserWindow | null> = {}
 
-function main() {
+function mainWin() {
+  if (windows.main) {
+    windows.main.show()
+    return
+  }
+
   windows.main = new BrowserWindow({
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.main.js'),
@@ -25,22 +19,23 @@ function main() {
   if (app.isPackaged) {
     windows.main.loadFile(path.join(__dirname, '../render/index.html'))
   } else {
-    windows.main.maximize()
+    register.toggleDevtools(windows.main)
     windows.main.webContents.openDevTools()
+    windows.main.maximize()
     windows.main.loadURL(`http://localhost:${process.env.PORT}`)
   }
-
-  // something init setup
-
-  toggleDevtools(windows.main)
 }
 
-function login() {
+function loginWin() {
+  if (windows.login) {
+    windows.login.show()
+    return
+  }
+
   windows.login = new BrowserWindow({
-    title: '登录',
     width: 540, // 宽高和拼多多官方保持一致 
     height: 390,
-    resizable: false, // 不让缩放
+    resizable: false,
     // frame: !app.isPackaged, // 打包后去掉边框
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.login.js'),
@@ -54,3 +49,27 @@ function login() {
   }
 }
 
+// ----------------------------------------------------------------------
+
+app.on('window-all-closed', () => {
+  Object.keys(windows).forEach(key => {
+    windows[key] = null
+  })
+  app.quit()
+})
+
+app.whenReady().then(() => {
+  // register some ipc handle
+  register
+    .login(() => {
+      windows.login && windows.login.hide()
+      mainWin()
+    })
+    .logout(() => {
+      windows.main && windows.main.hide()
+      loginWin()
+    })
+
+  // open login BrowserWindow
+  loginWin()
+})

@@ -1,7 +1,7 @@
 <template>
   <div class="login-panel">
     <div class="login-left">
-      <h1 style="margin: 140px 0 0 44px;">BANNER</h1>
+      <h1 style="margin: 140px 0 0 44px">BANNER</h1>
     </div>
     <div class="login-right">
       <a-card>
@@ -25,7 +25,7 @@
               type="password"
             />
           </a-form-item>
-          <a-form-item style="text-align: center;">
+          <a-form-item style="text-align: center">
             <a-button type="primary" @click="onSubmit">登录</a-button>
             <a-button style="margin-left: 10px" @click="onReset">重置</a-button>
           </a-form-item>
@@ -73,6 +73,7 @@ export default defineComponent({
         .validate()
         .then((values) => {
           console.log("User info", values);
+          window.bridge.login();
         })
         .catch((error) => {
           console.warn("Validate error:", error);
