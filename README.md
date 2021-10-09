@@ -18,6 +18,10 @@
 - [with-login](https://github.com/caoxiemeihao/electron-vue-vite/tree/with-login)
   * [x] With multiple BrowserWindow and tsx、ant-design-vue
 
+## TODO
+- [ ] Preload support HRM
+- [ ] Exit app on `window-all-closed`
+
 ## Screenshot
 
 ![](https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/with-login/screenshot/with-login.png)
