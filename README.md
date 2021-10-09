@@ -27,7 +27,7 @@
 
 
 ## 如果你想请我喝个饮料
-<img width="240px" src="https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/main/screenshot/wx-9.99.png" />
+<img width="240px" src="https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/with-login/screenshot/wx-9.99.png" />
 
 ---
 
