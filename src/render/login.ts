@@ -1,16 +1,9 @@
 import { createApp } from 'vue'
 import LoginForm from './login-form.vue'
-import {
-  Card,
-  Form,
-  Input,
-  Button,
-} from 'ant-design-vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
 createApp(LoginForm)
-.use(Card)
-  .use(Form)
-  .use(Input)
-  .use(Button)
+  .use(ElementPlus)
   .mount('#app')
   .$nextTick(window.bridge.removeLoading)

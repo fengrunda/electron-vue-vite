@@ -4,33 +4,34 @@
       <h1 style="margin: 140px 0 0 44px">BANNER</h1>
     </div>
     <div class="login-right">
-      <a-card>
-        <a-form
+      <el-card>
+        <div style="height: 90px;" />
+        <el-form
           ref="formRef"
           :model="formState"
           :rules="formRules"
           :label-col="labelCol"
           :wrapper-col="wrapperCol"
         >
-          <a-form-item label="用户" name="username">
-            <a-input
-              v-model:value="formState.username"
+          <el-form-item label="用户" prop="username">
+            <el-input
+              v-model="formState.username"
               placeholder="请输入用户"
             />
-          </a-form-item>
-          <a-form-item label="密码" name="password">
-            <a-input
-              v-model:value="formState.password"
+          </el-form-item>
+          <el-form-item label="密码" prop="password">
+            <el-input
+              v-model="formState.password"
               placeholder="请输入密码"
               type="password"
             />
-          </a-form-item>
-          <a-form-item style="text-align: center">
-            <a-button type="primary" @click="onSubmit">登录</a-button>
-            <a-button style="margin-left: 10px" @click="onReset">重置</a-button>
-          </a-form-item>
-        </a-form>
-      </a-card>
+          </el-form-item>
+          <el-form-item style="text-align: center">
+            <el-button type="primary" @click="onSubmit">登录</el-button>
+            <el-button style="margin-left: 10px" @click="onReset">重置</el-button>
+          </el-form-item>
+        </el-form>
+      </el-card>
     </div>
   </div>
 </template>
@@ -105,13 +106,14 @@ export default defineComponent({
 
   .login-left {
     width: 200px;
+    flex-shrink: 0;
   }
 
   .login-right {
     flex-grow: 1;
-    width: 0;
+    width: calc(100% - 200px);
 
-    .ant-card {
+    .el-card {
       height: 100%;
     }
   }
