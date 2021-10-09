@@ -40,8 +40,8 @@ export default defineConfig({
     minify: false,
     rollupOptions: {
       input: {
-        main: path.join(__dirname, 'dist/render/index.html'),
-        login: path.join(__dirname, 'dist/render/login/index.html'),
+        main: path.join(__dirname, 'src/render/index.html'),
+        login: path.join(__dirname, 'src/render/login.html'),
       },
     },
   },

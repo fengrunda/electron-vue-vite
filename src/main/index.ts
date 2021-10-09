@@ -43,9 +43,9 @@ function loginWin() {
   })
 
   if (app.isPackaged) {
-    windows.login.loadFile(path.join(__dirname, '../render/login/index.html'))
+    windows.login.loadFile(path.join(__dirname, '../render/login.html'))
   } else {
-    windows.login.loadURL(`http://localhost:${process.env.PORT}/login/index.html`)
+    windows.login.loadURL(`http://localhost:${process.env.PORT}/login.html`)
   }
 }
 
