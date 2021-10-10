@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-aside width="200px">
+    <el-aside width="50px">
       <sider />
     </el-aside>
     <el-main>
@@ -22,3 +22,22 @@ export default defineComponent({
 });
 </script>
 
+<style lang="less" scoped>
+.app-layout {
+
+  .ant-layout-header {
+    height: var(--header-height);
+    background-color: #615b8a;
+  }
+
+  aside {
+    background-color: #f5f5f5;
+    border-right: 1px solid #dadada;
+  }
+
+  .ant-layout-sider-children {
+    height: 100%;
+  }
+
+}
+</style>
