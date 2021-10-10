@@ -1,5 +1,5 @@
+import { h } from 'vue'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import { HomeOutlined, UserOutlined } from '@ant-design/icons-vue'
 
 export interface RouteMeta {
   icon?: JSX.Element
@@ -9,17 +9,17 @@ export interface RouteMeta {
 export const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('@/render/pages/home'),
+    component: () => import('@/render/pages/home/index.vue'),
     meta: {
-      icon: <HomeOutlined />,
+      icon: h('el-icon', h('home-filled')),
       name: '首页',
     },
   },
   {
     path: '/about',
-    component: () => import('@/render/pages/about'),
+    component: () => import('@/render/pages/about/index.vue'),
     meta: {
-      icon: <UserOutlined />,
+      icon: h('el-icon', h('user')),
       name: '关于作者',
     },
   },
