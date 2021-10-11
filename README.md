@@ -21,12 +21,10 @@
   * [ ] Preload support HRM
   * [ ] Exit app on `window-all-closed`
 
-## 微信讨论
+## 微信讨论 / 请我喝茶
 
 <img width="240px" src="https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/main/blog/wx/qrcode.jpg" />
 
-
-## 如果你想请我喝个饮料
 <img width="240px" src="https://raw.githubusercontent.com/caoxiemeihao/electron-vue-vite/element-plus/screenshot/wx-9.99.png" />
 
 ---
