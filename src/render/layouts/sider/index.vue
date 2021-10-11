@@ -9,24 +9,25 @@
       ]"
     >
       <render v-if="menu.render" :render="menu.render" />
-      <router-link v-else :to="route.path">
+      <router-link v-else :to="menu.path">
         <icon :icon="menu.icon" />
       </router-link>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="tsx">
 import { defineComponent, h, getCurrentInstance } from "vue";
 import { useRoute } from "vue-router";
 import { routes } from "@/render/router";
-import ToolsComponent from "../components/ToolsComponent.vue";
+import ToolsComponent from "../../components/ToolsComponent.vue";
+import Settings from './settings.vue'
 
 export interface SiderMenu {
   title?: string;
   icon?: string | null;
   path: string;
-  render?: Function;
+  render?: () => JSX.Element;
 }
 
 function toUpperCase(str: string) {
@@ -54,7 +55,7 @@ export default defineComponent({
     },
     render: ({ render }) => render(),
   },
-  setup() {
+  setup(_, ctx) {
     const route = useRoute();
     const menus: SiderMenu[] = routes
       .filter((r) => r?.meta?.name)
@@ -80,8 +81,9 @@ export default defineComponent({
       .concat({
         title: "更多",
         path: "/setting",
-        icon: "expand",
-      });
+        icon: null,
+        render: () => <Settings />,
+      } as any);
 
     return {
       route,
@@ -100,6 +102,7 @@ export default defineComponent({
     color: #b3afc0;
 
     a {
+      padding: 8px; // expand click area
       color: #b3afc0;
     }
 
@@ -119,13 +122,12 @@ export default defineComponent({
     }
   }
 }
+</style>
 
-.setting-popover {
-  width: 90px;
-
-  .setting-item {
-    padding: 0 4px;
-    cursor: pointer;
+<style lang="less">
+.sider-wrap {
+  .el-icon {
+    font-size: 24px;
   }
 }
 </style>

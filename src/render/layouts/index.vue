@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container class="app-layout h-100">
     <el-aside width="50px">
       <sider />
     </el-aside>
@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Sider from "./sider.vue";
+import Sider from "./sider/index.vue";
 
 export default defineComponent({
   name: "AppLayout",
@@ -24,20 +24,9 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .app-layout {
-
-  .ant-layout-header {
-    height: var(--header-height);
-    background-color: #615b8a;
-  }
-
-  aside {
+  .el-aside {
     background-color: #f5f5f5;
     border-right: 1px solid #dadada;
   }
-
-  .ant-layout-sider-children {
-    height: 100%;
-  }
-
 }
 </style>
