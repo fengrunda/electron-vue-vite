@@ -1,9 +1,14 @@
 /**
- * Renderer and Main bridge
+ * Bridge between main process and renderer process
  */
 import fs from 'fs'
-import { contextBridge, ipcRenderer } from 'electron'
+import { ipcRenderer } from 'electron'
+import Store from 'electron-store'
 
-contextBridge.exposeInMainWorld('fs', fs)
-
-contextBridge.exposeInMainWorld('ipcRenderer', ipcRenderer)
+export const bridge = {
+  __dirname,
+  __filename,
+  fs,
+  ipcRenderer,
+  store: new Store,
+}

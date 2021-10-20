@@ -9,4 +9,6 @@ import './global.less'
 createApp(App)
   .use(router)
   .mount('#app')
-  .$nextTick(window.removeLoading)
+  .$nextTick(window.bridge.removeLoading)
+
+console.log(window.bridge);

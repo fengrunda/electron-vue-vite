@@ -53,7 +53,7 @@ export default defineComponent({
             <Popover placement='rightBottom' content={
               <div class='setting-popover'>
                 <div class='setting-item' onClick={() => {
-                  window.ipcRenderer.invoke(event.LOGOUT)
+                  window.bridge.ipcRenderer.invoke(event.LOGOUT)
                 }}>退出</div>
               </div>
             }>
