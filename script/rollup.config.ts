@@ -8,7 +8,7 @@ import alias from '@rollup/plugin-alias'
 import json from '@rollup/plugin-json'
 import { builtins, getEnv } from './utils'
 
-export interface ConfigOptions {
+export interface ConfigOptions extends RollupOptions {
   env?: typeof process.env.NODE_ENV
   proc: 'main' | 'render' | 'preload'
 }
@@ -16,11 +16,13 @@ export interface ConfigOptions {
 export default function (opts: ConfigOptions) {
   const sourcemap = opts.proc === 'render'
   const options: RollupOptions = {
-    input: path.join(__dirname, `../src/${opts.proc}/index.ts`),
+    input: opts.input ?? path.join(__dirname, `../src/${opts.proc}/index.ts`),
     output: {
       dir: path.join(__dirname, `../dist/${opts.proc}`),
       format: 'cjs',
       sourcemap,
+      chunkFileNames: '[name].js',
+      ...opts.output,
     },
     plugins: [
       nodeResolve({
