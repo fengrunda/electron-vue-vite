@@ -1,5 +1,5 @@
 /**
- * Expose something function to renderer
+ * Expose something function for renderer
  */
 import { BrowserWindow, ipcMain } from 'electron'
 import {
