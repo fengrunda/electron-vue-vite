@@ -22,4 +22,6 @@ interface ExposeBridge {
 
   /** electron-store */
   store: import('electron-store')
+
+  env: NodeJS.ProcessEnv
 }
