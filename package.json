@@ -66,6 +66,7 @@
     "@rollup/plugin-replace": "^3.0.0",
     "@rollup/plugin-typescript": "^8.2.5",
     "@types/minimist": "^1.2.1",
+    "@types/ws": "^8.2.0",
     "@vitejs/plugin-vue": "^1.6.0",
     "@vitejs/plugin-vue-jsx": "^1.1.7",
     "@vue/compiler-sfc": "^3.2.8",
@@ -81,7 +82,13 @@
     "ts-node": "^10.2.1",
     "typescript": "^4.4.2",
     "vite": "^2.5.3",
-    "vite-plugin-style-import": "^1.2.1"
+    "vite-plugin-style-import": "^1.2.1",
+    "ws": "^8.2.3"
+  },
+  "env": {
+    "//": "Will be auto inject to main,renderer,preload process.env",
+    "PORT": 3344,
+    "PORT_WS": 3355
   },
   "keywords": [
     "vite",
