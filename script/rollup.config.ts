@@ -42,7 +42,7 @@ export default function (opts: ConfigOptions) {
       }),
       replace({
         ...Object
-          .entries({ ...process.env, NODE_ENV: opts.env })
+          .entries({ NODE_ENV: opts.env })
           .reduce(
             (acc, [k, v]) => Object.assign(acc, { [`process.env.${k}`]: JSON.stringify(v) }),
             {},
