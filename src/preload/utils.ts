@@ -30,7 +30,7 @@ ${__ws_hot_reload_for_preload.name}(${JSON.stringify(options)})
   document.body.appendChild(oScript)
 }
 
-function __ws_hot_reload_for_preload(options) {
+function __ws_hot_reload_for_preload(options: { host: string; port: string | number }) {
   const ws = new WebSocket(`ws://${options.host}:${options.port}`)
   ws.onmessage = function (ev) {
     try {
