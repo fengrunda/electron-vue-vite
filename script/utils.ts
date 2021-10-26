@@ -36,16 +36,3 @@ export function typescript(): Plugin {
     name: 'cxmh:rollup-typescript-esbuild',
   }
 }
-
-export function getEnv(): Record<string, string> {
-  try {
-    if (getEnv.env) {
-      return getEnv.env
-    }
-    const env = parseEnv(fs.readFileSync(path.join(process.cwd(), '.env')))
-    return getEnv.env = env
-  } catch (error) {
-    return {}
-  }
-}
-getEnv.env = undefined as (Record<string, string> | undefined) // Just fix ts check
