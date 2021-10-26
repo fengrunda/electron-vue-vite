@@ -23,7 +23,7 @@
       <el-icon @click="window.history.forward()">
         <right />
       </el-icon>
-      <el-icon @click="window.location.reload">
+      <el-icon @click="window.location.reload()">
         <refresh-right />
       </el-icon>
     </div>
