@@ -1,6 +1,6 @@
 
 /** docoment ready */
-export function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
+export function domReady (condition: DocumentReadyState[] = ['complete', 'interactive']) {
   return new Promise(resolve => {
     if (condition.includes(document.readyState)) {
       resolve(true)
@@ -15,7 +15,7 @@ export function domReady(condition: DocumentReadyState[] = ['complete', 'interac
 }
 
 /** Inject ws related code */
-export function injectWsCode(options: {
+export function injectWsCode (options: {
   host: string
   port: string | number
 }) {
@@ -23,14 +23,14 @@ export function injectWsCode(options: {
   oScript.id = 'ws-preload-hot-reload'
 
   oScript.innerHTML = `
-${__ws_hot_reload_for_preload.toString()}
-${__ws_hot_reload_for_preload.name}(${JSON.stringify(options)})
+${__WS_HOT_RELOAD_FOR_PRELOAD.toString()}
+${__WS_HOT_RELOAD_FOR_PRELOAD.name}(${JSON.stringify(options)})
 `
 
   document.body.appendChild(oScript)
 }
 
-function __ws_hot_reload_for_preload(options: { host: string; port: string | number }) {
+function __WS_HOT_RELOAD_FOR_PRELOAD (options: { host: string; port: string | number }) {
   const ws = new WebSocket(`ws://${options.host}:${options.port}`)
   ws.onmessage = function (ev) {
     try {
@@ -42,7 +42,7 @@ function __ws_hot_reload_for_preload(options: { host: string; port: string | num
         setTimeout(() => window.location.reload(), 999)
       }
     } catch (error) {
-      console.warn(`ws.onmessage should be accept "JSON.string" formatted string.`)
+      console.warn('ws.onmessage should be accept "JSON.string" formatted string.')
       console.error(error)
     }
   }

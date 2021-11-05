@@ -1,0 +1,18 @@
+{
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "[vue]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascript]": {
+    // "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint" // 只采用eslint的格式化
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
+  },
+  "stylelint.autoFixOnSave": true,
+  "stylelint.configFile": "stylelint.config.js",
+  "path-autocomplete.pathMappings": {
+    "@": "${folder}/src",
+  },
+}

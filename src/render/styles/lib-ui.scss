@@ -1,0 +1,454 @@
+//  按需添加 命名规范请参考 https:// docs.emmet.io/cheat-sheet/
+
+/* ---------------------------------------------------布局 start ----------------------------------------------------- */
+.pos-r {
+  position: relative !important;
+}
+
+.pos-a {
+  position: absolute !important;
+}
+
+.pos-f {
+  position: fixed !important;
+}
+
+.pos-s {
+  position: static !important;
+}
+
+.pos-sk {
+  position: sticky !important;
+}
+
+.pos-us {
+  position: unset !important;
+}
+
+.zi-10 {
+  z-index: 10 !important;
+}
+
+.d-n {
+  display: none !important;
+}
+
+.d-b {
+  display: block !important;
+}
+
+.d-ib {
+  display: inline-block !important;
+}
+
+.t-0 {
+  top: 0 !important;
+}
+
+.r-0 {
+  right: 0 !important;
+}
+
+.b-0 {
+  bottom: 0 !important;
+}
+
+.l-0 {
+  left: 0 !important;
+}
+
+.of-h {
+  overflow: hidden !important;
+}
+
+.of-a {
+  overflow: auto !important;
+}
+
+.of-con {
+  object-fit: contain;
+}
+
+.of-cov {
+  object-fit: cover;
+}
+
+.op-c {
+  object-position: center;
+}
+
+.va-t {
+  vertical-align: top !important;
+}
+
+.va-b {
+  vertical-align: bottom !important;
+}
+
+.va-m {
+  vertical-align: middle !important;
+}
+
+.va-bl {
+  vertical-align: baseline !important;
+}
+
+.op-0 {
+  opacity: 0% !important;
+}
+
+.ml-a {
+  margin-left: auto !important;
+}
+
+.mr-a {
+  margin-right: auto !important;
+}
+
+$directions: ("t":"top", "b":"bottom", "l":"left", "r":"right");
+$dimensions: ("p":"padding", "m":"margin");
+
+// 获取padding margin间隔
+@each $dim in $dimensions {
+  // 循环四个方向
+  @each $dir in $directions {
+    @for $i from 1 through 25 {
+      $size: $i * 5;
+
+      .#{nth($dim, 1)}#{nth($dir, 1)}-#{$size} {
+        #{nth($dim,2)}-#{nth($dir,2)}: #{$size}px !important;
+      }
+    }
+  }
+
+  @for $i from 1 through 25 {
+    $wholeSize: $i * 5;
+
+    .#{nth($dim, 1)}-#{$wholeSize} {
+      #{nth($dim,2)}: #{$wholeSize}px !important;
+    }
+  }
+}
+
+@for $i from 1 through 40 {
+  $size: $i;
+
+  .fz-#{$size} {
+    font-size: #{$size}px !important;
+  }
+}
+
+.bz-bb {
+  box-sizing: border-box !important;
+}
+
+.bz-cb {
+  box-sizing: content-box !important;
+}
+
+.ojf-ct {
+  object-fit: contain !important;
+}
+
+.ojf-cv {
+  object-fit: cover !important;
+}
+
+/* ---------------------------------------------------布局 end ----------------------------------------------------- */
+
+/* ---------------------------------------------------文本 start ----------------------------------------------------- */
+//  .cwLoop(@counter) when (@counter > = 0) {
+//    .c-white_@{counter} {
+//      color: rgba(255, 255, 255,@counter / 100) !important;
+//    }
+//    .cwLoop(( @counter - 20));
+//  }
+//  .cwLoop(100);
+
+//  .cbLoop(@counter) when (@counter > = 0) {
+//    .c-black_@{counter} {
+//      color: rgba(0, 0, 0,@counter / 100) !important;
+//    }
+//    .cbLoop(( @counter - 20));
+//  }
+//  .cbLoop(100);
+
+//  .fzLoop(@counter) when (@counter < = 48) {
+//    .fz-@{counter} {
+//      font-size: unit(@counter, px) !important;
+//    }
+//    .fzLoop(( @counter + 4));
+//  }
+//  .fzLoop(20);
+
+.fw-b {
+  font-weight: bold !important;
+}
+
+.fw-n {
+  font-weight: normal !important;
+}
+
+.wob-n {
+  word-break: normal !important;
+}
+
+.wob-k {
+  word-break: keep-all !important;
+}
+
+.wob-ba {
+  word-break: break-all !important;
+}
+
+.wow-b {
+  word-wrap: break-word !important;
+}
+
+.whs-nw {
+  white-space: nowrap !important;
+}
+
+.ta-c {
+  text-align: center !important;
+}
+
+.ta-l {
+  text-align: left !important;
+}
+
+.ta-r {
+  text-align: right !important;
+}
+
+.lh-1 {
+  line-height: 1 !important;
+}
+
+.lh-1_3 {
+  line-height: 1.3 !important;
+}
+
+.lh-1_5 {
+  line-height: 1.5 !important;
+}
+
+/* ---------------------------------------------------文本 end ----------------------------------------------------- */
+
+/* --------------------flex 容器 start ----------------------------------------------------- */
+.d-if {
+  display: inline-flex !important;
+}
+
+.d-f {
+  display: flex !important;
+}
+
+.jc-fs {
+  justify-content: flex-start !important;
+}
+
+.jc-fe {
+  justify-content: flex-end !important;
+}
+
+.jc-c {
+  justify-content: center !important;
+}
+
+.jc-sa {
+  justify-content: space-around !important;
+}
+
+.jc-sb {
+  justify-content: space-between !important;
+}
+
+.ai-s {
+  align-items: stretch !important;
+}
+
+.ai-fs {
+  align-items: flex-start !important;
+}
+
+.ai-fe {
+  align-items: flex-end !important;
+}
+
+.ai-c {
+  align-items: center !important;
+}
+
+.fxw-w {
+  flex-wrap: wrap !important;
+}
+
+.fxd-c {
+  flex-direction: column !important;
+}
+
+.fxd-r {
+  flex-direction: row !important;
+}
+
+/* -----------------------flex 容器 end ----------------------------------------------------- */
+
+/* ---------------------------flex item start --------------------------------------------------- */
+.fxb-a {
+  flex-basis: auto !important;
+}
+
+.fxb-100 {
+  flex-basis: 100% !important;
+}
+
+.fxb-50 {
+  flex-basis: 50% !important;
+}
+
+.fxb-33 {
+  flex-basis: 33% !important;
+}
+
+.fxb-25 {
+  flex-basis: 25% !important;
+}
+
+.fxb-20 {
+  flex-basis: 20% !important;
+}
+
+.fxg-0 {
+  flex-grow: 0 !important;
+}
+
+.fxg-1 {
+  flex-grow: 1 !important;
+}
+
+.fxsh-0 {
+  flex-shrink: 0 !important;
+}
+
+.fxsh-1 {
+  flex-shrink: 1 !important;
+}
+
+.fx-1 {
+  flex: 1 !important;
+}
+
+/* ------------------------flex item end --------------------------------------------------- */
+
+/* ---------------------------------------------------color begin --------------------------------------------------- */
+.c-666 {
+  color: #666;
+}
+
+.c-999 {
+  color: #999;
+}
+
+.c-ccc {
+  color: #ccc;
+}
+
+.c-danger,
+.c-red {
+  color: #f56c6c;
+}
+
+.c-blue,
+.c-brand {
+  color: #409eff;
+}
+
+.c-green,
+.c-success {
+  color: #67c23a;
+}
+
+.c-gray,
+.c-info {
+  color: #909399;
+}
+
+.c-warning,
+.c-yellow {
+  color: #e6a23c;
+}
+
+.bg-w {
+  background-color: white !important;
+}
+
+/* ---------------------------------------------------color end --------------------------------------------------- */
+
+/* ---------------------------------------------------width begin --------------------------------------------------- */
+@for $i from 1 through 100 {
+  $width: $i;
+
+  .w-#{$width}p {
+    width: 1% * $width;
+  }
+}
+
+@for $i from 1 through 100 {
+  $value: $i * 10;
+
+  .w-#{$value} {
+    width: #{$value}px;
+  }
+
+  .miw-#{$value} {
+    min-width: #{$value}px;
+  }
+
+  .h-#{$value} {
+    height: #{$value}px;
+  }
+
+  .mih-#{$value} {
+    min-height: #{$value}px;
+  }
+}
+
+.h-100p {
+  height: 100% !important;
+}
+
+.w-100p {
+  width: 100% !important;
+}
+
+.fd-c {
+  flex-direction: column;
+}
+
+/* ---------------------------------------------------width end --------------------------------------------------- */
+
+/* --------------------------Visual Formatting begin --------------------------------------------------- */
+
+.cur-p {
+  cursor: pointer;
+}
+
+/* ---------------------------------Visual Formatting end --------------------------------------------------- */
+
+.ell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------------------------------border begin --------------------------------------------------- */
+@for $i from 1 through 30 {
+  $size: $i;
+
+  .bdrs-#{$size} {
+    border-radius: #{$size}px;
+  }
+}
+
+/* ---------------------------------------------------border end --------------------------------------------------- */

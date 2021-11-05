@@ -4,18 +4,19 @@ import { register } from './communication'
 
 let win: BrowserWindow | null = null
 
-function bootstrap() {
+function bootstrap () {
   win = new BrowserWindow({
+    fullscreen: true,
     webPreferences: {
-      preload: path.join(__dirname, '../preload/index.js'),
-    },
+      preload: path.join(__dirname, '../preload/index.js')
+    }
   })
 
   if (app.isPackaged) {
     win.loadFile(path.join(__dirname, '../render/index.html'))
   } else {
     win.maximize()
-    win.webContents.openDevTools()
+    win.webContents.openDevTools({ mode: 'right', activate: true })
     win.loadURL(`http://localhost:${process.env.PORT}`)
   }
 
