@@ -11,14 +11,30 @@
     "baseUrl": "./",
     "strict": true,
     "paths": {
-      "@root/*": ["./*"],
-      "@/*": ["src/*"]
+      "@root/*": [
+        "./*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      // "vite/client",
+      // "node",
+      "element-plus/global"
+    ]
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  // "include": [
+  //   // "src/**/*",
+  //   "typings/*"
+  // ],
+  // "exclude": [
+  //   "node_modules"
+  // ],
 }

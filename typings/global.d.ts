@@ -12,5 +12,6 @@ interface Window {
   /** NodeJs fs */
   fs: typeof import('fs')
   /** Electron ipcRenderer */
-  ipcRenderer: import('electron').IpcRenderer
+  ipcRenderer: import('electron').IpcRenderer,
+  xlsx: typeof import('node-xlsx')
 }

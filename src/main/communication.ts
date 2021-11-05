@@ -5,12 +5,14 @@ import { BrowserWindow, ipcMain } from 'electron'
 import {
   LOGIN,
   LOGOUT,
-  TOGGLE_DEVTOOLS,
+  TOGGLE_DEVTOOLS
 } from '@/common/constant/event'
 
-export function register(win: BrowserWindow) {
+export function register (win: BrowserWindow) {
   ipcMain.handle(TOGGLE_DEVTOOLS, () => {
     win.webContents.toggleDevTools()
   })
-  ipcMain.handle(LOGOUT, () => { })
+  ipcMain.handle(LOGOUT, () => {
+    //
+  })
 }

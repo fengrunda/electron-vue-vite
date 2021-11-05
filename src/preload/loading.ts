@@ -1,5 +1,5 @@
 
-function loadingBootstrap() {
+function loadingBootstrap () {
   const loadingStyle = document.createElement('style')
   const loadingBox = document.createElement('div')
 
@@ -92,27 +92,27 @@ function loadingBootstrap() {
     const _loadingStyle = document.getElementById('preload-loading-style')
     const _loadingBox = document.getElementById('preload-loading-box')
 
-    // Ensure the remove child exists. 
+    // Ensure the remove child exists.
     _loadingStyle && document.head.removeChild(_loadingStyle)
     _loadingBox && document.body.removeChild(_loadingBox)
-  };
+  }
 
   return { loadingStyle, loadingBox, removeLoading, appendLoading }
 }
 
 /** 闪屏 loading */
-export function useLoading() {
+export function useLoading () {
   let _isCallRemoveLoading = false
-  const { appendLoading, removeLoading } = loadingBootstrap();
+  const { appendLoading, removeLoading } = loadingBootstrap()
 
   // 5 秒超时自动关闭
   setTimeout(() => !_isCallRemoveLoading && removeLoading(), 4999)
 
   return {
     appendLoading,
-    removeLoading() {
+    removeLoading () {
       _isCallRemoveLoading = true
       removeLoading()
-    },
+    }
   }
 }

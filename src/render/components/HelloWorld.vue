@@ -2,11 +2,11 @@
   <h1>{{ msg }}</h1>
 
   <label>
-    <input type="checkbox" v-model="useScriptSetup" /> Use
+    <input v-model="useScriptSetup" type="checkbox"> Use
     <code>&lt;script setup&gt;</code>
   </label>
   <label>
-    <input type="checkbox" v-model="useTsPlugin" /> Provide types for
+    <input v-model="useTsPlugin" type="checkbox"> Provide types for
     <code>*.vue</code> imports
   </label>
 
@@ -31,15 +31,17 @@
   </p>
   <p v-if="useTsPlugin">
     tsconfig setup:
-    <br />1. Install and add
+    <br>1. Install and add
     <code>@vuedx/typescript-plugin-vue</code> to tsconfig plugins
-    <br />2. Delete <code>src/shims-vue.d.ts</code>
-    <br />3. Open
+    <br>2. Delete <code>src/shims-vue.d.ts</code>
+    <br>3. Open
     <code>src/main.ts</code> in VSCode
-    <br />4. Open VSCode command input
-    <br />5. Search and run "Select TypeScript version" -> "Use workspace version"
+    <br>4. Open VSCode command input
+    <br>5. Search and run "Select TypeScript version" -> "Use workspace version"
   </p>
-  <button @click="count++">count is: {{ count }}</button>
+  <button @click="count++">
+    count is: {{ count }}
+  </button>
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
@@ -63,8 +65,8 @@ export default defineComponent({
   },
   setup: () => {
     const count = ref(0)
-    const useScriptSetup = ref(false);
-    const useTsPlugin = ref(false);
+    const useScriptSetup = ref(false)
+    const useTsPlugin = ref(false)
     return { count, useScriptSetup, useTsPlugin }
   }
 })
@@ -81,9 +83,9 @@ label {
 }
 
 code {
-  background-color: #eee;
   padding: 2px 4px;
-  border-radius: 4px;
   color: #304455;
+  background-color: #eee;
+  border-radius: 4px;
 }
 </style>

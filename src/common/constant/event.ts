@@ -2,7 +2,7 @@
  * 主进程、渲染进程公用事件常量
  */
 
- /** 退出 */
+/** 退出 */
 export const LOGOUT = '@event/logout'
 
 /** 登录 */
