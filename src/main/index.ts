@@ -1,17 +1,23 @@
 import path from 'path'
 import { app, BrowserWindow } from 'electron'
 import { register } from './communication'
+import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
 
 let win: BrowserWindow | null = null
 
-function bootstrap () {
+async function bootstrap () {
   win = new BrowserWindow({
     fullscreen: true,
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js')
     }
   })
-
+  try {
+    const name = await installExtension(VUEJS3_DEVTOOLS)
+    console.log(`已安装: ${name}`)
+  } catch (error) {
+    console.log('无法安装 `vue-devtools`: \n', error)
+  }
   if (app.isPackaged) {
     win.loadFile(path.join(__dirname, '../render/index.html'))
   } else {

@@ -20,44 +20,45 @@ export default function (opts: ConfigOptions) {
     output: {
       dir: path.join(__dirname, `../dist/${opts.proc}`),
       format: 'cjs',
-      sourcemap,
+      sourcemap
     },
     plugins: [
       nodeResolve({
-        extensions: ['.ts', '.js', 'json'],
+        extensions: ['.ts', '.js', 'json']
       }),
       commonjs(),
       json(),
       typescript({
         sourceMap: sourcemap,
-        noEmitOnError: true,
+        noEmitOnError: true
       }),
       alias({
         entries: {
           '@root': path.join(__dirname, '..'),
-          '@': path.join(__dirname, '../src'),
-        },
+          '@': path.join(__dirname, '../src')
+        }
       }),
       replace({
         ...Object
           .entries({ NODE_ENV: opts.env })
           .reduce(
             (acc, [k, v]) => Object.assign(acc, { [`process.env.${k}`]: JSON.stringify(v) }),
-            {},
+            {}
           ),
-        preventAssignment: true,
-      }),
+        preventAssignment: true
+      })
     ],
     external: [
       ...builtins(),
       'electron',
+      'electron-devtools-installer'
     ],
     onwarn: warning => {
       // https://github.com/rollup/rollup/issues/1089#issuecomment-365395213
       if (warning.code !== 'CIRCULAR_DEPENDENCY') {
         console.error(`(!) ${warning.message}`)
       }
-    },
+    }
   }
 
   return options
