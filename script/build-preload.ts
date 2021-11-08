@@ -11,7 +11,7 @@ const opt = options({ proc: 'preload', env: argv.env })
 const TAG = '[build-preload.ts]'
 const spinner = ora(`${TAG} Electron preload build...`)
 
-; (async () => {
+  ; (async () => {
   if (argv.watch) {
     const watcher = watch(opt)
     const wssObj = createWsServer({ TAG })
@@ -39,4 +39,4 @@ const spinner = ora(`${TAG} Electron preload build...`)
       process.exit(1)
     }
   }
-})();
+})()

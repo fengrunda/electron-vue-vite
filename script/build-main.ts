@@ -14,7 +14,7 @@ const opt = options({ proc: 'main', env: argv.env })
 const TAG = '[build-main.ts]'
 const spinner = ora(`${TAG} Electron main build...`)
 
-; (async () => {
+  ; (async () => {
   if (argv.watch) {
     // Wait on vite server launched
     const waitOnState = waitOn({ port: env.PORT })
@@ -33,7 +33,7 @@ const spinner = ora(`${TAG} Electron main build...`)
         child = spawn(
           electron as unknown as string,
           [path.join(__dirname, `../${main}`)],
-          { env: Object.assign(process.env, env), stdio: 'inherit' },
+          { env: Object.assign(process.env, env), stdio: 'inherit' }
         )
       } else if (ev.code === 'ERROR') {
         console.log(ev.error)
@@ -52,4 +52,4 @@ const spinner = ora(`${TAG} Electron main build...`)
       process.exit(1)
     }
   }
-})();
+})()
