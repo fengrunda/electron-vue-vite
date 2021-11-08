@@ -16,6 +16,7 @@
             :drag="true"
             :multiple="true"
             :on-change="handlePickFile"
+            :on-remove="handleRemoveFile"
           >
             <el-icon class="el-icon--upload">
               <upload-filled accept=".xlsx" />
@@ -39,6 +40,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useStore } from 'vuex'
 import { UploadFile } from 'element-plus/lib/components/upload/src/upload.type'
 // console.log(useStore().state.template.testData)
@@ -56,20 +58,21 @@ const emit = defineEmits<{
   (e: 'change', id: number): void
   (e: 'update', value: string): void
 }>()
-const handlePickFile = (file:UploadFile, fileList:UploadFile[]) => {
-  console.log('handlePickFile :>> ', file, fileList)
-  // console.log('fs :>> ', fs.readFileSync(file.path))
-  // const path = window.fs.readFileSync(file.raw.path)
-  // console.log('path :>> ', path)
-  // const reader = new FileReader()
-  // reader.readAsDataURL(file.raw)
-  // reader.onload = function (e) {
-  //   console.log('this.result :>> ', this.result)
-  //   const workSheetsFromFile = window.xlsx.parse(this.result as string)
-  //   console.log('workSheetsFromFile :>> ', workSheetsFromFile)
-  // }
+// const DATA_MAP:{
+//   [uid: number]: {
+//     name: string;
+//     data: unknown[][];
+//   }[]
+// } = {}
+const firstFileTitle = ref([])
+const DATA_MAP = new Map()
+function handlePickFile (file:UploadFile, fileList:UploadFile[]) {
   const workSheetsFromFile = window.xlsx.parse(file.raw.path)
+  DATA_MAP.set(file.uid, workSheetsFromFile)
   console.log('workSheetsFromFile :>> ', workSheetsFromFile)
+}
+function handleRemoveFile (file:UploadFile, fileList:UploadFile[]) {
+  DATA_MAP.delete(file.uid)
 }
 // console.log('window.electron :>> ', window.electron)
 

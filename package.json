@@ -2,7 +2,7 @@
   "name": "electron-vue",
   "version": "0.0.1",
   "main": "dist/main/index.js",
-  "author": "草鞋没号 <308487730@qq.com>",
+  "author": "fengrunda<fred548106@163.com>",
   "license": "MIT",
   "scripts": {
     "dev": "concurrently -n=R,P,M -c=green,yellow,blue \"npm run dev:render\" \"npm run dev:preload\" \"npm run dev:main\"",
@@ -17,7 +17,7 @@
     "clean": "rm -rf dist"
   },
   "build": {
-    "appId": "308487730@qq.com",
+    "appId": "",
     "asar": true,
     "directories": {
       "output": "release/${version}"

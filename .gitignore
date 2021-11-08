@@ -3,7 +3,9 @@ node_modules
 dist
 dist-ssr
 *.local
+.vscode
 
 tmp
 **/.tmp
 release
+yarn.lock
